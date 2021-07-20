@@ -5,6 +5,10 @@
 /* --celadon-blue: #457b9dff; */
 /* --prussian-blue: #1d3557ff; */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .masthead {
     height: 100vh;
     min-height: 500px;
