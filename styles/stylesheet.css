@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  /* font-family: 'Open Sans', sans-serif; */
+}
+
 .masthead {
     height: 100vh;
     min-height: 500px;
