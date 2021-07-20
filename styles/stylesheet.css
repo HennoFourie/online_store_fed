@@ -1,3 +1,14 @@
+/* CSS HEX */
+/* --imperial-red: #e63946ff; */
+/* --honeydew: #f1faeeff; */
+/* --powder-blue: #a8dadcff; */
+/* --celadon-blue: #457b9dff; */
+/* --prussian-blue: #1d3557ff; */
+
+html {
+  scroll-behavior: smooth;
+}
+
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -12,4 +23,24 @@
   padding: 2%;
   height: 60px;
   width: auto;
+}
+
+#topButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #e63946ff;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#topButton:hover {
+  background-color: #a8dadcff;
 }
