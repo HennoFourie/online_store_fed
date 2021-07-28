@@ -18,6 +18,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+
 // Initialize and add the map
 function initMap() {
   // The location of Cape Town
@@ -33,3 +34,9 @@ function initMap() {
     map: map,
   });
 }
+
+
+$(document).on("click", '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
+});
