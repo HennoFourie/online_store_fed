@@ -1,3 +1,15 @@
+var STORAGE_KEY = "online_store";
+var shopStorage = {
+  fetch: function () {
+    var shop = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return shop;
+  },
+  save: function (shop) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(shop));
+  }
+};
+
+
 //Get the button
 var toTopButton = document.getElementById("topButton");
 
@@ -47,6 +59,7 @@ $(document).on("click", '[data-toggle="lightbox"]', function (event) {
 new Vue({
   el: '#app',
   data: {
+    shop: shopStorage.fetch(),
     isShowingCart: false,
     cart: {
       items: []
@@ -116,6 +129,14 @@ new Vue({
         inStock: 4
       },
     ]
+  },
+  watch: {
+    shop: {
+      handler: function (shop) {
+        shopStorage.save(shop);
+      },
+      deep: true
+    }
   },
   computed: {
     cartTotal: function () {
