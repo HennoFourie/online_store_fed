@@ -9,10 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* body {
-  font-family: 'Open Sans', sans-serif;
-} */
-
 .masthead {
     height: 100vh;
     min-height: 500px;
@@ -50,8 +46,25 @@ html {
 }
 
 .btn-primary {
-  background-color: #e63946ff;
-  border-color: #e63946ff;
+  background-color: #e63946ff !important;
+  border-color: #e63946ff !important;
+}
+
+
+/* Shop styling */
+.btn-success {
+  background-color: #457b9dff !important;
+  border-color: #457b9dff !important;
+}
+
+#checkoutButton {
+  background-color: #e63946ff !important;
+  border-color: #e63946ff !important;
+}
+
+.list-group-image {
+  width: auto;
+  height: 250px;
 }
 
 
