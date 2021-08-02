@@ -45,7 +45,7 @@ html {
   background-color: #a8dadcff;
 }
 
-.btn:hover {
+.btn, .gallery :hover {
   transform: scale(1.02);
 }
 
