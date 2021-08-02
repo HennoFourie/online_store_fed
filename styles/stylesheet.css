@@ -45,6 +45,10 @@ html {
   background-color: #a8dadcff;
 }
 
+.btn:hover {
+  transform: scale(1.02);
+}
+
 .btn-primary {
   background-color: #e63946ff !important;
   border-color: #e63946ff !important;
