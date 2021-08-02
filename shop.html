@@ -14,134 +14,146 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="styles/stylesheet.css" type="text/css" rel="stylesheet">
+    <link href="styles/all.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html"><img class="img_logo" src="images/logo.jpg">Furniture Loft</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about-us.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lookbook.html">Gallery</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Shop<span class="sr-only">(current)</span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="shop.html">All Products</a>
-                            <a class="dropdown-item" href="#">New Arrivals</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
     <button onclick="topFunction()" id="topButton" title="Go to top">Top</button>
 
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                        </div>
-                    </div>
+    <div id="app">
+        <!-- navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html"><img class="img_logo" src="images/logo.jpg">Furniture Loft</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about-us.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lookbook.html">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                        <button class="btn btn-outline-dark" type="submit" @click="isShowingCart = true">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">{{ cart.items.length }}</span>
+                        </button>
                 </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                        </div>
-                    </div>
-                </div>
-                
-                
             </div>
-        </div>
-    </section>
+        </nav>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col-12 text-center">
+                        <h4 class="display-5 fw-bolder">Explore and shop</h4>
+                        <p>Free delivery within 3-5 working days for orders over R2000.</p>
+                    </div>
+
+                    <div class="container">
+                        <div v-if="!isShowingCart" id="products" class="row">
+                            <div v-for="product in products" class="item  col-xs-4 col-lg-4">
+                                <div class="thumbnail mt-3">
+                                    <img class="group list-group-image" :src="product.picture" alt="" />
+                                    <div class="caption">
+                                        <h5 class="group inner list-group-item-heading">
+                                            {{product.name}}</h5>
+                                        <p class="group inner list-group-item-text">
+                                            {{product.description}}</p>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <p class="lead">
+                                                    {{product.price | currency}}</p>
+                                            </div>
+                                            <div class="col-xs-8 flex flex-row align-center justify-right">
+                                                <div class="number-in-stock"
+                                                    :class="{ few: product.inStock < 10 && product.inStock > 0, none: product.inStock == 0 }">
+                                                    {{ product.inStock }} in stock
+                                                </div>
+                                                <button class="btn btn-success" @click="addProductToCart(product)"
+                                                    :disabled="product.inStock == 0">Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-else>
+                            <h1>Cart</h1>
+                            <table v-if="cart.items.length > 0" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in cart.items">
+                                        <td>{{ item.product.name }}</td>
+                                        <td>
+                                            {{ item.quantity }} &nbsp;
+                                            <button class="btn btn-success" @click="increaseQuantity(item)"
+                                                :disabled="item.product.inStock == 0">+</button>
+                                            <button class="btn btn-danger" @click="decreaseQuantity(item)">-</button>
+                                        </td>
+                                        <td>{{ item.quantity * item.product.price | currency }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right" colspan="2">
+                                            <strong>Subtotal</strong>
+                                        </td>
+
+                                        <td>{{ cartTotal | currency }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right" colspan="2">
+                                            <strong>Taxes</strong>
+                                        </td>
+
+                                        <td>{{ taxAmount | currency }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right" colspan="2">
+                                            <strong>Grand total</strong>
+                                        </td>
+
+                                        <td>{{ cartTotal + taxAmount | currency }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2"></td>
+                                        <td><button class="btn btn-success" id="checkoutButton" @click="checkout">Checkout</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p v-else>Your cart is currently empty.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <div class="container">
