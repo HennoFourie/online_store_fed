@@ -50,7 +50,7 @@
                         <button class="btn btn-outline-dark" type="submit" @click="isShowingCart = true">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">{{ cart.items.length }}</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">{{ cartitems.length }}</span>
                         </button>
                 </div>
             </div>
@@ -95,7 +95,7 @@
 
                         <div v-else>
                             <h1>Cart</h1>
-                            <table v-if="cart.items.length > 0" class="table table-striped">
+                            <table v-if="cartitems.length > 0" class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Product</th>
@@ -104,7 +104,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="item in cart.items">
+                                    <tr v-for="item in cartitems">
                                         <td>{{ item.product.name }}</td>
                                         <td>
                                             {{ item.quantity }} &nbsp;

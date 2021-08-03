@@ -1,15 +1,3 @@
-var STORAGE_KEY = "online_store";
-var shopStorage = {
-  fetch: function () {
-    var shop = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    return shop;
-  },
-  save: function (shop) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(shop));
-  }
-};
-
-
 //Get the button
 var toTopButton = document.getElementById("topButton");
 
@@ -59,11 +47,8 @@ $(document).on("click", '[data-toggle="lightbox"]', function (event) {
 new Vue({
   el: '#app',
   data: {
-    shop: shopStorage.fetch(),
+    cartitems: JSON.parse(localStorage.getItem('STORE_CART')) || [],
     isShowingCart: false,
-    cart: {
-      items: []
-    },
     products: [
       {
         id: 1,
@@ -131,17 +116,17 @@ new Vue({
     ]
   },
   watch: {
-    shop: {
-      handler: function (shop) {
-        shopStorage.save(shop);
-      },
-      deep: true
+    cartitems: {
+      deep: true,
+      handler(newValue) {
+        localStorage.setItem('STORE_CART', JSON.stringify(newValue));
+      }
     }
   },
   computed: {
     cartTotal: function () {
       var total = 0;
-      this.cart.items.forEach(function (item) {
+      this.cartitems.forEach(function (item) {
         total += item.quantity * item.product.price;
       });
       return total;
@@ -162,19 +147,19 @@ new Vue({
   },
   methods: {
     removeItemFromCart: function (cartItem) {
-      var index = this.cart.items.indexOf(cartItem);
+      var index = this.cartitems.indexOf(cartItem);
 
       if (index !== -1) {
-        this.cart.items.splice(index, 1);
+        this.cartitems.splice(index, 1);
       }
     },
     checkout: function () {
       if (confirm('Are you sure that you want to purchase these products?')) {
-        this.cart.items.forEach(function (item) {
+        this.cartitems.forEach(function (item) {
           item.product.inStock += item.quantity;
         });
 
-        this.cart.items = [];
+        this.cartitems = [];
       }
     },
     addProductToCart: function (product) {
@@ -183,7 +168,7 @@ new Vue({
       if (cartItem != null) {
         cartItem.quantity++;
       } else {
-        this.cart.items.push({
+        this.cartitems.push({
           product: product,
           quantity: 1
         });
@@ -202,9 +187,9 @@ new Vue({
       }
     },
     getCartItem: function (product) {
-      for (var i = 0; i < this.cart.items.length; i++) {
-        if (this.cart.items[i].product.id === product.id) {
-          return this.cart.items[i];
+      for (var i = 0; i < this.cartitems.length; i++) {
+        if (this.cartitems[i].product.id === product.id) {
+          return this.cartitems[i];
         }
       }
 
